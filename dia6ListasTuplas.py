@@ -65,35 +65,66 @@
 ## Desafios Extras
 #1 Lista de Tarefas
 
-tarefas = []
+# tarefas = []
+
+# while True:
+#     print("\nMenu de Tarefas:")
+#     print("1. Adicionar tarefa")
+#     print("2. Remover tarefa")
+#     print("3. Listar tarefas")
+#     print("4. Sair")
+
+#     opcao = input("Escolhas uma opção: ")
+
+#     if opcao == "1": 
+#         tarefa = input("Digite a tarefa a ser adicionada: ")
+#         tarefas.append(tarefa)
+#         print("Tarefa adicionada com sucesso.")
+#     elif opcao == "2":
+#         tarefa = input("Digite uma tarefa a ser removida: ")
+#         if tarefa in tarefas:
+#             tarefas.remove(tarefa)
+#             print("Tarefa removida com sucesso.")
+#         else:
+#             print("TArefa não encontrada")
+#     elif opcao == "3":
+#         print("\nLista de Tarefas:")
+#         for idx, tarefa in enumerate(tarefas, start=1):
+#             print(f"{idx}. {tarefa}")
+#     elif opcao == "4":
+#         print("Saindo do programa.")
+#         break
+#     else:
+#         print("Opção inválida. Tente novamente.")
+
+#2 Analisador de notas
+
+notas = []
 
 while True:
-    print("\nMenu de Tarefas:")
-    print("1. Adicionar tarefa")
-    print("2. Remover tarefa")
-    print("3. Listar tarefas")
-    print("4. Sair")
-
-    opcao = input("Escolhas uma opção: ")
-
-    if opcao == "1": 
-        tarefa = input("Digite a tarefa a ser adicionada: ")
-        tarefas.append(tarefa)
-        print("Tarefa adicionada com sucesso.")
-    elif opcao == "2":
-        tarefa = input("Digite uma tarefa a ser removida: ")
-        if tarefa in tarefas:
-            tarefas.remove(tarefa)
-            print("Tarefa removida com sucesso.")
-        else:
-            print("TArefa não encontrada")
-    elif opcao == "3":
-        print("\nLista de Tarefas:")
-        for idx, tarefa in enumerate(tarefas, start=1):
-            print(f"{idx}. {tarefa}")
-    elif opcao == "4":
-        print("Saindo do programa.")
+    entrada = input("Digite uma nota (ou 'sair' para finalizar): ")
+    if entrada.lower() == 'sair':
         break
     else:
-        print("Opção inválida. Tente novamente.")
+        try:
+            nota = float(entrada)
+            if 0 <= nota <= 10:
+                notas.append(nota)
+            else:
+                print("Nota inválida. Digite um valor entre 0 e 10.")
+        except ValueError:
+            print("Entrada inválida. pro favor, digite um nímero.")
 
+if notas:
+    maior_nota = max(notas)
+    menor_nota = min(notas)
+    media = sum(notas)
+    notas_acima_media = [nota for nota in notas if nota > media]
+
+    print("\nResultados:")
+    print("Maior nota:", maior_nota)
+    print("Menor nota:", menor_nota)
+    print("Média da turma:", media)
+    print("Notas acima da média:", notas_acima_media)
+else:
+    print("Nehuma nota foi inserida")
