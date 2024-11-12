@@ -22,15 +22,29 @@
 
 #3 Contagem de caracteres em uma String
 
-frase = input("Digite uma frase: ").lower()
-letras = {}
+# frase = input("Digite uma frase: ").lower()
+# letras = {}
 
-for caractere in frase:
-    if caractere.isalpha():
-        if caractere in letras:
-            letras[caractere] += 1
-        else:
-            letras[caractere] = 1
+# for caractere in frase:
+#     if caractere.isalpha():
+#         if caractere in letras:
+#             letras[caractere] += 1
+#         else:
+#             letras[caractere] = 1
 
-for letra, contagem in letras.items():
-    print(f"A letra '{letra}' aparece {contagem} vez(es)")
+# for letra, contagem in letras.items():
+#     print(f"A letra '{letra}' aparece {contagem} vez(es)")
+
+#4 Ordenando uma Lista
+
+entrada = input("Digite números separados por espaço: ")
+numeros = [float(num) for num in entrada.split()]
+
+#ordem crescente
+numeros_crescente = sorted(numeros)
+print("Números em ordem crescente:", numeros_crescente)
+
+#ordem decrescente
+
+numeros_decrescente = sorted(numeros, reverse=True)
+print("Números decrescente:", numeros_decrescente)
