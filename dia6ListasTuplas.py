@@ -37,14 +37,27 @@
 
 #4 Ordenando uma Lista
 
-entrada = input("Digite números separados por espaço: ")
-numeros = [float(num) for num in entrada.split()]
+# entrada = input("Digite números separados por espaço: ")
+# numeros = [float(num) for num in entrada.split()]
 
-#ordem crescente
-numeros_crescente = sorted(numeros)
-print("Números em ordem crescente:", numeros_crescente)
+# #ordem crescente
+# numeros_crescente = sorted(numeros)
+# print("Números em ordem crescente:", numeros_crescente)
 
-#ordem decrescente
+# #ordem decrescente
 
-numeros_decrescente = sorted(numeros, reverse=True)
-print("Números decrescente:", numeros_decrescente)
+# numeros_decrescente = sorted(numeros, reverse=True)
+# print("Números decrescente:", numeros_decrescente)
+
+#5 Trabalhando com tuplas
+
+meses = ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+"Julho", "Agosto", "Setembro", "Outubro", "Novembro",
+"Dezembro")
+
+numero_mes = int(input("Digite um número entre 1 e 12: "))
+
+if 1 <= numero_mes <= 12:
+    print(f"O mês correspondente é {meses[numero_mes - 1]}.")
+else:
+    print("Números inválido. por favor, digite um número entre 1 e 12.")
