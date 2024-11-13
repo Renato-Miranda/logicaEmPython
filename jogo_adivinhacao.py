@@ -1,7 +1,7 @@
 import random
 #lista para armazenar as pontuações
 pontuacoes = []
-# Criando o Loop principal do jogo
+
 print("Bem-vindo ao jogo de Adivinhação!")
 #Dificuldade personalizada
 print("Escolha o nível de dificuldade:")
@@ -10,7 +10,7 @@ print("2. Médio (7 tentativas)")
 print("3. Difícil (5 tentativas)")
 
 while True:
-    dificuldade = input("Digite p número da dificuldade desejada: ")
+    dificuldade = input("Digite o número da dificuldade desejada: ")
     if dificuldade == "1":
         tentativas_totais = 10
         break
@@ -23,7 +23,7 @@ while True:
     else:
         print("opção inválida. Por favor, escolha 1, 2 ou 3.")
 
-
+# Criando o Loop principal do jogo
 while True:
     numero_secreto = random.randint(1, 100)
     tentativas_restantes = tentativas_totais
