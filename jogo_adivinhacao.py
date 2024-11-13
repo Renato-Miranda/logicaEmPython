@@ -18,10 +18,14 @@ while True:
 
         #Verificando se o input é um número válido
         if not palpite.isdigit():
-            print("Por favor, digite um número válido.")
+            print("Por favor, digite um número válido entre 1 e 100.")
             continue
 
         palpite = int(palpite)
+        if palpite < 1 or palpite > 100:
+            print("O número de estar entre 10 e 100.")
+            continue
+
         tentativas += 1
         tentativas_restantes -= 1
 
