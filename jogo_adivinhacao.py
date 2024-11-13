@@ -28,6 +28,7 @@ while True:
     numero_secreto = random.randint(1, 100)
     tentativas_restantes = tentativas_totais
     tentativas = 0
+    palpites_feitos = []
 
     print("\nEu pensei em um número entre 1 e 100.")
     print(f"Você tem {tentativas_restantes} tentativas para adivinhar")
@@ -46,12 +47,18 @@ while True:
             print("O número de estar entre 10 e 100.")
             continue
 
+        if palpite in palpites_feitos:
+            print("Você já usou esse número. Tente outro")
+            continue
+        else: 
+            palpites_feitos.append(palpite)
+
         tentativas += 1
         tentativas_restantes -= 1
 
         if palpite == numero_secreto:
             print(f"Parabéns! Você acertou o número em {tentativas} tentativas(s).")
-            pontuacao = tentativas_restantes * 10
+            pontuacao = tentativas_restantes * 10 * (int(dificuldade))
             pontuacoes.append(pontuacao)
             print(f"Sua pontuação nesta partida: {pontuacao} pontos.")
             break
@@ -60,7 +67,8 @@ while True:
         else:
             print("O número é menor que esse.")
 
-        print(f"Tentaivas restantes: {tentativas_restantes}")
+        print(f"Tentativas restantes: {tentativas_restantes}")
+        print(f"Palpites já feitos: {palpites_feitos}")
 
     else:
         print(f"\nQue pena! Você não conseguiu adivinhar. O número era {numero_secreto}.")
