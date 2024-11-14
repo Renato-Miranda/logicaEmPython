@@ -57,17 +57,56 @@
 
 #2 Função para Verificar Número Primo
 
-def eh_primo(numero):
-    if numero <= 1:
-        return False
-    for i in range(2, numero):
-        if numero % i == 0:
-            return False
-    return True
+# def eh_primo(numero):
+#     if numero <= 1:
+#         return False
+#     for i in range(2, numero):
+#         if numero % i == 0:
+#             return False
+#     return True
 
-num = int(input("digite um número inteiro: "))
+# num = int(input("digite um número inteiro: "))
 
-if eh_primo(num):
-    print(f"{num} é um número primo.")
+# if eh_primo(num):
+#     print(f"{num} é um número primo.")
+# else:
+#     print(f"{num} não é um número primo.")
+
+#3 Conversor de Termperaturas
+def celcius_para_farrenheit(c):
+    return c * 9/5 + 32
+
+def fahrenheit_para_celcius(f):
+    return (f - 32) * 5/9
+
+def celcius_para_kelvin(c):
+    return c + 273.15
+
+def kelvin_para_celcius(k):
+    return k - 273.15
+
+temperatura = float(input("Digite a temperatura: "))
+unidade = input("Digite a unidade atual (C,F,K): ").upper()
+converter_para = input("Converte para (C,F,K): ").upper()
+
+if unidade == 'C':
+    if converter_para == 'F':
+        resultado = celcius_para_farrenheit(temperatura)
+    elif converter_para == 'K':
+        resultado = celcius_para_kelvin(temperatura)
+elif unidade == 'F':
+    if converter_para == 'C':
+        resultado = fahrenheit_para_celcius(temperatura)
+    elif converter_para == 'K':
+        celsius = fahrenheit_para_celcius(temperatura)
+        resultado = celcius_para_kelvin(celsius)
+elif unidade == 'K':
+    if converter_para == 'C':
+        resultado = kelvin_para_celcius(temperatura)
+    elif converter_para == 'F':
+        celsius = kelvin_para_celcius(temperatura)
+        resultado = celcius_para_farrenheit(celsius)
 else:
-    print(f"{num} não é um número primo.")
+    resultado = "Unidade inválida."
+
+print(f"Temperatura convertida: {resultado} {converter_para}")
