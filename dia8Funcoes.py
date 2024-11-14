@@ -140,17 +140,28 @@
 # print("Senha gerada:", senha_gerada)
 
 #2 Calculando a distância Entre dois pontos
-import math
+# import math
 
-def distancia(ponto1, ponto2):
-    x1, y1 = ponto1 
-    x2, y2 = ponto2
-    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+# def distancia(ponto1, ponto2):
+#     x1, y1 = ponto1 
+#     x2, y2 = ponto2
+#     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
-x1 = float(input("Digite x1: "))
-y1 = float(input("Digite y1: "))
-x2 = float(input("Digite x2: "))
-y2 = float(input("Digite y2: "))
+# x1 = float(input("Digite x1: "))
+# y1 = float(input("Digite y1: "))
+# x2 = float(input("Digite x2: "))
+# y2 = float(input("Digite y2: "))
 
-dist = distancia((x1, y1), (x2, y2))
-print(f"A distância entre os pontos é: {dist}")
+# dist = distancia((x1, y1), (x2, y2))
+# print(f"A distância entre os pontos é: {dist}")
+
+#3 Verificador de Palíndromo
+def eh_palindromo(texto):
+    texto = ''.join(char.lower() for char in texto if char.isalnum())
+    return texto == texto[::-1]# Essa notação inverte a string, de modo que a última letra se torna a primeira, e assim por diante.
+
+frase = input("Digite uma palavra ou frase: ")
+if eh_palindromo(frase):
+    print("É um palíndromo")
+else:
+    print(" Não é um palíndromo")
