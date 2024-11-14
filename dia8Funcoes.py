@@ -127,14 +127,30 @@
 ## Exercícios Extras ##
 #1 Gerador de Senhas Aleatórias
 
-import random
-import string
+# import random
+# import string
 
-def gerar_senha(tamanho):
-    caracteres = string.ascii_letters + string.digits + string.punctuation
-    senha = ''.join(random.choice(caracteres) for _ in range(tamanho))
-    return senha
+# def gerar_senha(tamanho):
+#     caracteres = string.ascii_letters + string.digits + string.punctuation
+#     senha = ''.join(random.choice(caracteres) for _ in range(tamanho))
+#     return senha
 
-temanho_senha = int(input("Digite o tamanho da senha desejada: "))
-senha_gerada = gerar_senha(temanho_senha)
-print("Senha gerada:", senha_gerada)
+# temanho_senha = int(input("Digite o tamanho da senha desejada: "))
+# senha_gerada = gerar_senha(temanho_senha)
+# print("Senha gerada:", senha_gerada)
+
+#2 Calculando a distância Entre dois pontos
+import math
+
+def distancia(ponto1, ponto2):
+    x1, y1 = ponto1 
+    x2, y2 = ponto2
+    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
+x1 = float(input("Digite x1: "))
+y1 = float(input("Digite y1: "))
+x2 = float(input("Digite x2: "))
+y2 = float(input("Digite y2: "))
+
+dist = distancia((x1, y1), (x2, y2))
+print(f"A distância entre os pontos é: {dist}")
