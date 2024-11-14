@@ -73,40 +73,53 @@
 #     print(f"{num} não é um número primo.")
 
 #3 Conversor de Termperaturas
-def celcius_para_farrenheit(c):
-    return c * 9/5 + 32
+# def celcius_para_farrenheit(c):
+#     return c * 9/5 + 32
 
-def fahrenheit_para_celcius(f):
-    return (f - 32) * 5/9
+# def fahrenheit_para_celcius(f):
+#     return (f - 32) * 5/9
 
-def celcius_para_kelvin(c):
-    return c + 273.15
+# def celcius_para_kelvin(c):
+#     return c + 273.15
 
-def kelvin_para_celcius(k):
-    return k - 273.15
+# def kelvin_para_celcius(k):
+#     return k - 273.15
 
-temperatura = float(input("Digite a temperatura: "))
-unidade = input("Digite a unidade atual (C,F,K): ").upper()
-converter_para = input("Converte para (C,F,K): ").upper()
+# temperatura = float(input("Digite a temperatura: "))
+# unidade = input("Digite a unidade atual (C,F,K): ").upper()
+# converter_para = input("Converte para (C,F,K): ").upper()
 
-if unidade == 'C':
-    if converter_para == 'F':
-        resultado = celcius_para_farrenheit(temperatura)
-    elif converter_para == 'K':
-        resultado = celcius_para_kelvin(temperatura)
-elif unidade == 'F':
-    if converter_para == 'C':
-        resultado = fahrenheit_para_celcius(temperatura)
-    elif converter_para == 'K':
-        celsius = fahrenheit_para_celcius(temperatura)
-        resultado = celcius_para_kelvin(celsius)
-elif unidade == 'K':
-    if converter_para == 'C':
-        resultado = kelvin_para_celcius(temperatura)
-    elif converter_para == 'F':
-        celsius = kelvin_para_celcius(temperatura)
-        resultado = celcius_para_farrenheit(celsius)
-else:
-    resultado = "Unidade inválida."
+# if unidade == 'C':
+#     if converter_para == 'F':
+#         resultado = celcius_para_farrenheit(temperatura)
+#     elif converter_para == 'K':
+#         resultado = celcius_para_kelvin(temperatura)
+# elif unidade == 'F':
+#     if converter_para == 'C':
+#         resultado = fahrenheit_para_celcius(temperatura)
+#     elif converter_para == 'K':
+#         celsius = fahrenheit_para_celcius(temperatura)
+#         resultado = celcius_para_kelvin(celsius)
+# elif unidade == 'K':
+#     if converter_para == 'C':
+#         resultado = kelvin_para_celcius(temperatura)
+#     elif converter_para == 'F':
+#         celsius = kelvin_para_celcius(temperatura)
+#         resultado = celcius_para_farrenheit(celsius)
+# else:
+#     resultado = "Unidade inválida."
 
-print(f"Temperatura convertida: {resultado} {converter_para}")
+# print(f"Temperatura convertida: {resultado} {converter_para}")
+
+#4 Função Recursiva para Fatorial
+
+def fatorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * fatorial(n - 1)
+    
+num = int(input("Digite um número inteiro positivo: "))
+if num >= 0:
+    resultado = fatorial(num)
+    print(f"O fatorial de {num} é {resultado}")
