@@ -157,6 +157,23 @@
 
 #3 Verificador de Palíndromo
 def eh_palindromo(texto):
+    """Verifica se uma string é um palíndromo, ignorando espaços,
+    pontuações e diferenças entre maiúsculas e minúsculas.
+
+    Esta função normaliza a string removendo todos os caracteres
+    que não são letras ou números e convertendo todas as letras
+    para minúsculas. Em seguida, ela verifica se o texto resultante
+    é o mesmo quando lido de trás para frente.
+
+    Parâmetros:
+    texto (str): A string que será verificada.
+
+    Retorna:
+    bool: Retorna True se o texto for um palíndromo e False caso contrário.
+
+    Exemplo:
+    >>> eh_palindromo("A man, a plan, a canal, Panama!")
+    True"""
     texto = ''.join(char.lower() for char in texto if char.isalnum())
     return texto == texto[::-1]# Essa notação inverte a string, de modo que a última letra se torna a primeira, e assim por diante.
 
