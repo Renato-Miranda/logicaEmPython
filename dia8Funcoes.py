@@ -113,13 +113,28 @@
 
 #4 Função Recursiva para Fatorial
 
-def fatorial(n):
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * fatorial(n - 1)
+# def fatorial(n):
+#     if n == 0 or n == 1:
+#         return 1
+#     else:
+#         return n * fatorial(n - 1)
     
-num = int(input("Digite um número inteiro positivo: "))
-if num >= 0:
-    resultado = fatorial(num)
-    print(f"O fatorial de {num} é {resultado}")
+# num = int(input("Digite um número inteiro positivo: "))
+# if num >= 0:
+#     resultado = fatorial(num)
+#     print(f"O fatorial de {num} é {resultado}")
+
+## Exercícios Extras ##
+#1 Gerador de Senhas Aleatórias
+
+import random
+import string
+
+def gerar_senha(tamanho):
+    caracteres = string.ascii_letters + string.digits + string.punctuation
+    senha = ''.join(random.choice(caracteres) for _ in range(tamanho))
+    return senha
+
+temanho_senha = int(input("Digite o tamanho da senha desejada: "))
+senha_gerada = gerar_senha(temanho_senha)
+print("Senha gerada:", senha_gerada)
