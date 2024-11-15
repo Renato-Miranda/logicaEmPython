@@ -37,8 +37,19 @@
 # print("Arquivos no diretório atual: {arquivos}")
 
 #Módulo sys - saber mais sobre o sistema o programa está rodando.
-import sys
+# import sys
 
-print("VErsão do Python:", sys.version)
+# print("VErsão do Python:", sys.version)
 
 ## Reutilização de Código - Criar meus próprios módulos 
+
+## Exercícios Práticos
+#1. Criando um módulo de conversão de temperaturas
+
+import conversoes
+
+temperatura_c = float(input("Digite a temperatura em Calsius: "))
+temperatura_f = conversoes.celcius_para_farrenheit(temperatura_c)
+temperatura_k = conversoes.celcius_para_kelvin(temperatura_c)
+
+print(f"{temperatura_c}°C equivale a {temperatura_f}°F e {temperatura_k}°K")
