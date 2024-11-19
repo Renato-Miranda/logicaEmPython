@@ -64,11 +64,18 @@
 
 #1. Contador de Vogais
 
-frase = input("Digite uma frase: ").lower()
-vogais = "aeiou"
-contador = 0 
+# frase = input("Digite uma frase: ").lower()
+# vogais = "aeiou"
+# contador = 0 
 
-for letra in frase:
-    if letra in vogais:
-        contador += 1
-print(f"A frase tem {contador} vogais.")
+# for letra in frase:
+#     if letra in vogais:
+#         contador += 1
+# print(f"A frase tem {contador} vogais.")
+
+#2. Invertendo Palavras
+
+frase = input("Digite uma frase a ser invertida: ")
+palavras = frase.split()
+frase_invertida= " ".join(reversed(palavras))
+print(f"Frase Invertida: {frase_invertida}")
