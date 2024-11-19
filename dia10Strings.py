@@ -75,7 +75,16 @@
 
 #2. Invertendo Palavras
 
-frase = input("Digite uma frase a ser invertida: ")
-palavras = frase.split()
-frase_invertida= " ".join(reversed(palavras))
-print(f"Frase Invertida: {frase_invertida}")
+# frase = input("Digite uma frase a ser invertida: ")
+# palavras = frase.split()
+# frase_invertida= " ".join(reversed(palavras))
+# print(f"Frase Invertida: {frase_invertida}")
+
+#3. Verificação de Palíndromo 
+
+palavra = input("Digite uma palavra: ").lower()
+palavra_sem_espaco = palavra.replace(" ","")
+if palavra_sem_espaco == palavra_sem_espaco[::-1]:
+    print(f"A palavra {palavra} é um palíndromo!")
+else:
+    print(f"{palavra} não é um palíndromo :(")
