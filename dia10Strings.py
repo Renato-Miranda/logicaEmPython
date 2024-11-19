@@ -82,9 +82,24 @@
 
 #3. Verificação de Palíndromo 
 
-palavra = input("Digite uma palavra: ").lower()
-palavra_sem_espaco = palavra.replace(" ","")
-if palavra_sem_espaco == palavra_sem_espaco[::-1]:
-    print(f"A palavra {palavra} é um palíndromo!")
+# palavra = input("Digite uma palavra: ").lower()
+# palavra_sem_espaco = palavra.replace(" ","")
+# if palavra_sem_espaco == palavra_sem_espaco[::-1]:
+#     print(f"A palavra {palavra} é um palíndromo!")
+# else:
+#     print(f"{palavra} não é um palíndromo :(")
+
+#4. Senha Forte
+
+senha = input("Digite uma senha: ")
+
+tem_maiusculo = any(c.isupper() for c in senha)
+tem_minuscula = any(c.islower() for c in senha)
+tem_numero = any(c.isdigit() for c in senha)
+tem_simbolo = any(not c.isalnum() for c in senha)
+tamanho_adequado = len(senha) >= 8 
+
+if tem_maiusculo and tem_minuscula and tem_numero and tem_simbolo and tamanho_adequado:
+    print("Senha forte!")
 else:
-    print(f"{palavra} não é um palíndromo :(")
+    print("Senha fraca. Tente novamente.")
