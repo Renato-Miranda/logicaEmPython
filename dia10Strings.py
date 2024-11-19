@@ -20,7 +20,42 @@
 # print(mensagem)
 
 ###Métodos Comuns de Strings###
+##Trasformando maiúsculas e Minúsculas
 
 #upper() - transforma todos os caracteres em maiúsculas.
 texto = "Bom dia"
-print(texto.upper())
+print(texto.upper())    
+
+#lower() - Todos os caracteres em minúsculas.
+print(texto.lower())
+
+#tittle() Coloca a primeira letra de cada palavra em maiúscula.
+print(texto.title())
+
+##Removendo Espaçoes em Branco
+#strip() Remove espeços em branco no início e no fim da string.
+texto = "  Olá!  "
+print(texto.strip())
+
+##Substituindo Partes da String
+#replace() - Substitui uma parte da string por outra.
+frase = "Aprender Java é divertido!"
+nova_frase = frase.replace("Java", "Python")
+print(nova_frase)
+
+##Encontrando Substrings
+#find() - Encontra a posição de uma substring dentro da string.
+frase = "Onde está o Wally?"
+posição = frase.find("Wally")
+print(f"Wally está na posição {posição}")
+
+##Dividindo e Juntando Strings
+#split() - Divide a string em uma lista, usando um separador.
+dados = "maçã,banana,laranja"
+lista_frutas = dados.split(",")
+print(lista_frutas)
+
+#join() - Junta elementos de uma lista em uma String.
+lista_palavras = ["Python", "é", "Legal"]
+frase= " ".join(lista_palavras)
+print(frase)
