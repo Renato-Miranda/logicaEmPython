@@ -82,3 +82,26 @@ print(intersecao)
 #Diferença: Elementos presentes em um conjunto e não no outro
 diferenca = conjunto_a.difference(conjunto_b)
 print(diferenca)
+
+#### Aplicações Práticas ####
+## Usando Dicionários para Ocntar Ocorrências
+
+texto = "banana maçã laranja banana maçã banana"
+palavras = texto.split()
+
+contagem = {}
+for palavra in palavras:
+    if palavra in contagem:
+        contagem[palavra] += 1
+    else:
+        contagem[palavra] = 1
+
+print(contagem)
+
+## Usando Conjuntos para Encontrar Valores únicos
+
+emails = ["a@exemplo.com", "b@exemplo.com", "a@exemplo.com", "c@exemplo.com"]
+emails_unicos = set(emails)
+print(emails_unicos)
+
+
