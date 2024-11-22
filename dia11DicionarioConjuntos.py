@@ -17,3 +17,68 @@ frutas = ["maçã", "banana", "laranja", "maçã", "banana"]
 
 frutas_unicas = set(frutas)
 print(frutas_unicas)
+
+## Operações Básicas ##
+# Criando um dicionário 
+aluno = {
+    "nome": "Daniel",
+    "idade": 20,
+    "curso": "Engenharia" 
+}
+
+#Acessando Valores
+print(aluno["nome"])
+
+## Adicionando ou Atualizando itens
+# Adicionando um novo par chave-valor
+aluno["nota"] = 9.5
+
+# Atualizando um valor existente
+aluno["idade"] = 21
+
+# Removendo itens
+del aluno["curso"]
+
+# usando pop()
+idade = aluno.pop("idade")
+print(idade)
+
+## Percorrendo um Dicionário
+
+for chave, valor in aluno.items():
+    print(f"{chave}: {valor}")
+
+### Trabalhando com Conjuntos
+# Criando um Conjunto
+
+numeros = {1, 2, 3, 4, 5}
+
+# Ou trasnformando uma lista em conjunto:
+
+lista = [1, 2, 2, 3, 4, 4, 5]
+numeros_unicos = set(lista)
+print(numeros_unicos)
+
+## Adicionando ou Removendo Elementos
+# Adicionando
+numeros.add(6)
+
+# Removendo
+numeros.remove(2)
+print(numeros)
+
+## Operações entre Conjuntos
+#União: Combinda elementos de amabos os conjuntos.
+
+conjunto_a = { 1, 2, 3}
+conjunto_b = {3, 4 , 5}
+uniao = conjunto_a.union(conjunto_b)
+print(uniao)
+
+## Interseção: Elementos comuns aos dois conjuntos.
+intersecao = conjunto_a.intersection(conjunto_b)
+print(intersecao)
+
+#Diferença: Elementos presentes em um conjunto e não no outro
+diferenca = conjunto_a.difference(conjunto_b)
+print(diferenca)
