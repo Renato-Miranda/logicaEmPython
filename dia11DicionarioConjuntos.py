@@ -151,7 +151,20 @@ print(emails_unicos)
         
 
 #2. Verificação de palavras Únicas
-frase = input("Difite uma frase: ")
-palavras = frase.split()
-palavras_unicas = set(palavras)
-print("Palvras únicas:", palavras_unicas)
+# frase = input("Difite uma frase: ")
+# palavras = frase.split()
+# palavras_unicas = set(palavras)
+# print("Palvras únicas:", palavras_unicas)
+
+#3 União e interseção de Conjuntos
+numeros1 = input("Digite números separados por espaço para o primeiro conjuntos: ").split()
+numeros2 = input("Digite números separados por espaço para o segundo conjuntos: ").split()
+
+conjunto1 = set(numeros1)
+conjunto2 = set(numeros2)
+
+uniao = conjunto1.union(conjunto2)
+intersecao = conjunto1.intersection(conjunto2)
+
+print("União dos conjuntos:", uniao)
+print("Interseção dos conjuntos:", intersecao)
