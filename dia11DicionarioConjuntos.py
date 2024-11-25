@@ -157,14 +157,28 @@ print(emails_unicos)
 # print("Palvras únicas:", palavras_unicas)
 
 #3 União e interseção de Conjuntos
-numeros1 = input("Digite números separados por espaço para o primeiro conjuntos: ").split()
-numeros2 = input("Digite números separados por espaço para o segundo conjuntos: ").split()
+# numeros1 = input("Digite números separados por espaço para o primeiro conjuntos: ").split()
+# numeros2 = input("Digite números separados por espaço para o segundo conjuntos: ").split()
 
-conjunto1 = set(numeros1)
-conjunto2 = set(numeros2)
+# conjunto1 = set(numeros1)
+# conjunto2 = set(numeros2)
 
-uniao = conjunto1.union(conjunto2)
-intersecao = conjunto1.intersection(conjunto2)
+# uniao = conjunto1.union(conjunto2)
+# intersecao = conjunto1.intersection(conjunto2)
 
-print("União dos conjuntos:", uniao)
-print("Interseção dos conjuntos:", intersecao)
+# print("União dos conjuntos:", uniao)
+# print("Interseção dos conjuntos:", intersecao)
+
+#4. Contador de Caracteres
+texto = input("Digite um texte: ")
+
+contagem = {}
+for caractere in texto:
+    if caractere in contagem:
+        contagem[caractere] += 1
+    else:
+        contagem[caractere] = 1
+
+print("Contagem de caracteres:")
+for caractere, quantidade in contagem.items():
+    print(f"'{caractere}' : {quantidade}")
