@@ -134,3 +134,15 @@
 #         print(f"Ocorreu um erro: {e}")
         
 # ler_arquivo_usuario()
+
+#3. Conversão de temperatura com validação
+# def celcius_para_fahrenheit():
+#     try:
+#         celcius = float(input("Digite a temperatura em Celcius: "))
+#         fahrenheit = celcius * 9 / 5 + 32
+#     except ValueError:
+#         print("Erro: Por favor, insira um valor numérico.")
+#     else:
+#         print(f"A temperatura em Fahrenheit é: {fahrenheit:.2f}°F")
+        
+# celcius_para_fahrenheit()
