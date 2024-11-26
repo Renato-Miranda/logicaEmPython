@@ -118,3 +118,19 @@
 #         print(f"O resultado da divisão é: {resultado}")
 
 # divisao_segura()
+
+#2. Abertura de arquivo com verificação:
+# def ler_arquivo_usuario():
+#     nome_arquivo = input("Digite o nome do arquivo: ")
+#     try:
+#         with open(nome_arquivo, "r") as arquivo:
+#             conteudo = arquivo.read()
+#             print(conteudo)
+#     except FileNotFoundError:
+#         print("Erro: arquivo não existe.")
+#     except PermissionError:
+#         print("Erro: Sem permissão para ler o arquivo")
+#     except Exception as e:
+#         print(f"Ocorreu um erro: {e}")
+        
+# ler_arquivo_usuario()
