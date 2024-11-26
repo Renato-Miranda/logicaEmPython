@@ -75,16 +75,30 @@
 # calculadora()
 
 #2. Acesso a arquivos com tratamento de exceções.
-def ler_arquivo(nome_arquivo):
-    try:
-        with open(nome_arquivo, 'r') as arquivo:
-            conteudo = arquivo.read()
-            print(conteudo)
-    except FileNotFoundError:
-        print("Erro: O arquivo não foi encontrado.")
-    except PermissionError: 
-        print("Erro: Permissão negada para ler o arquivo.")
-    except Exception as e:
-        print(f"Ocorreu um erro inesperado: {e}")
+# def ler_arquivo(nome_arquivo):
+#     try:
+#         with open(nome_arquivo, 'r') as arquivo:
+#             conteudo = arquivo.read()
+#             print(conteudo)
+#     except FileNotFoundError:
+#         print("Erro: O arquivo não foi encontrado.")
+#     except PermissionError: 
+#         print("Erro: Permissão negada para ler o arquivo.")
+#     except Exception as e:
+#         print(f"Ocorreu um erro inesperado: {e}")
 
-ler_arquivo('dados.txt')
+# ler_arquivo('dados.txt')
+
+#3. Conversão de dados com tratamento de exceções:
+# def obter_idade():
+#     while True:
+#         try:
+#             idade = int(input("Digite sua idade: "))
+#             if idade < 0:
+#                 raise ValueError("A idade não pode ser negativa")
+#             return idade
+#         except ValueError as ve:
+#             print(f"Erro: {ve}")
+
+# idade_usuario = obter_idade()
+# print(f"Sua idade é: {idade_usuario}")
