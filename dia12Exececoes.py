@@ -102,3 +102,19 @@
 
 # idade_usuario = obter_idade()
 # print(f"Sua idade é: {idade_usuario}")
+
+### Exercícios Extras ###
+#1. Divisão Segura:
+# def divisao_segura():
+#     try:
+#         numerador = float(input("Digite o numerador: "))
+#         denominador = float(input("Digite o denominador: "))
+#         resultado = numerador / denominador
+#     except ValueError:
+#         print("Erro: Por favor, insira números válidos")
+#     except ZeroDivisionError:
+#         print("Erro: divisão por zero não é permitida.")
+#     else:
+#         print(f"O resultado da divisão é: {resultado}")
+
+# divisao_segura()
