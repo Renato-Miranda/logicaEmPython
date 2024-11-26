@@ -48,28 +48,43 @@
 
 ### Exemplos Práticos ###
 #1. Calculadora com tratamento de exceções:
-def calculadora():
+# def calculadora():
+#     try:
+#         num1 = float(input("Digite o primeiro número: "))
+#         operador = input("Digite o operador (+, -, *, /): ")
+#         num2 = float(input("Digite o segundo número: "))
+        
+#         if operador == '+':
+#             resultado = num1 + num2
+#         elif operador == '-':
+#             resultado = num1 - num2
+#         elif operador == '*':
+#             resultado = num1 * num2
+#         elif operador == '/':
+#             resultado = num1 / num2
+#         else:
+#             raise ValueError("Operador inválido.")
+        
+#     except ValueError as ve:
+#         print(f"Erro de valor: {ve}")
+#     except ZeroDivisionError:
+#         print("Erro: Divisão por zero.")
+#     else:
+#         print(f"O resultado é: {resultado}")
+        
+# calculadora()
+
+#2. Acesso a arquivos com tratamento de exceções.
+def ler_arquivo(nome_arquivo):
     try:
-        num1 = float(input("Digite o primeiro número: "))
-        operador = input("Digite o operador (+, -, *, /): ")
-        num2 = float(input("Digite o segundo número: "))
-        
-        if operador == '+':
-            resultado = num1 + num2
-        elif operador == '-':
-            resultado = num1 - num2
-        elif operador == '*':
-            resultado = num1 * num2
-        elif operador == '/':
-            resultado = num1 / num2
-        else:
-            raise ValueError("Operador inválido.")
-        
-    except ValueError as ve:
-        print(f"Erro de valor: {ve}")
-    except ZeroDivisionError:
-        print("Erro: Divisão por zero.")
-    else:
-        print(f"O resultado é: {resultado}")
-        
-calculadora()
+        with open(nome_arquivo, 'r') as arquivo:
+            conteudo = arquivo.read()
+            print(conteudo)
+    except FileNotFoundError:
+        print("Erro: O arquivo não foi encontrado.")
+    except PermissionError: 
+        print("Erro: Permissão negada para ler o arquivo.")
+    except Exception as e:
+        print(f"Ocorreu um erro inesperado: {e}")
+
+ler_arquivo('dados.txt')
