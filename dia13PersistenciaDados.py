@@ -175,5 +175,20 @@ else:
         print(f"Quantidade: {produto['quantidade']}")
         print("-" * 20)
         
+#4. Copiador de Arquivos: fazer uma cópia de segurança das suas anotações
+
+origem = input("Digite o nome do arquivo de origem: ")
+destino = input("Digite o nome do arquivo de destino: ")
+
+try:
+    with open(origem, 'rb') as arquivo_origem:
+        conteudo = arquivo_origem.read()
+    with open(destino, 'wb') as arquivo_destino:
+        arquivo_destino.write(conteudo)
+except FileNotFoundError:
+    print("Arquivo de origem não encontrado.")
+else:
+    print(f"Arquivo {destino} criado com sucesso.")
+
 
 
