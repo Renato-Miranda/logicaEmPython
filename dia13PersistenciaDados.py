@@ -111,39 +111,69 @@
         
 #2. Gerenciador de Contatos:
 
-import csv
+# import csv
 
-def adicionar_contato():
-    nome = input("Nome: ")
-    telefone = input("Telefone: ")
-    email = input("Email: ")
+# def adicionar_contato():
+#     nome = input("Nome: ")
+#     telefone = input("Telefone: ")
+#     email = input("Email: ")
     
-    with open('contato.csv', 'a', newline='') as arquivo_csv:
-        escritor = csv.writer(arquivo_csv)
-        escritor.writerow([nome, telefone, email])
-    print("contato adicionado com sucesso!")
+#     with open('contato.csv', 'a', newline='') as arquivo_csv:
+#         escritor = csv.writer(arquivo_csv)
+#         escritor.writerow([nome, telefone, email])
+#     print("contato adicionado com sucesso!")
     
-def listar_contatos():
-    try:
-        with open('contato.csv', 'r',) as arquivo_csv:
-            leitor = csv.reader(arquivo_csv)
-            for linha in leitor:
-                print(f"Nome: {linha[0]}, telefone: {linha[1]}, email: {linha[2]}")
-    except FileNotFoundError:
-        print("Nenhum contato encontrado.")
+# def listar_contatos():
+#     try:
+#         with open('contato.csv', 'r',) as arquivo_csv:
+#             leitor = csv.reader(arquivo_csv)
+#             for linha in leitor:
+#                 print(f"Nome: {linha[0]}, telefone: {linha[1]}, email: {linha[2]}")
+#     except FileNotFoundError:
+#         print("Nenhum contato encontrado.")
         
-while True:
-    print("\nMenu:")
-    print("1. Adicionar Contato")
-    print("2. Listar Contatos")
-    print("3. Sair")
-    opcao = input("Escolha uma opção: ")
+# while True:
+#     print("\nMenu:")
+#     print("1. Adicionar Contato")
+#     print("2. Listar Contatos")
+#     print("3. Sair")
+#     opcao = input("Escolha uma opção: ")
     
-    if opcao == '1':
-        adicionar_contato()
-    elif opcao == '2':
-        listar_contatos()   
-    elif opcao == '3':
-        break
-    else:
-        print("Opção inválida.")
+#     if opcao == '1':
+#         adicionar_contato()
+#     elif opcao == '2':
+#         listar_contatos()   
+#     elif opcao == '3':
+#         break
+#     else:
+#         print("Opção inválida.")
+        
+#3. Leitor de Arquivos JSON:
+
+import json
+
+# Dados iniciais
+produtos = [
+    {"nome": "Caneta", "preco": 1.50, "quantidade": 100},
+    {"nome": "Caderno", "preco": 10.00, "quantidade": 50}
+]
+
+try:
+    # Tentativa de leitura do arquivo
+    with open('produtos.json', 'r') as arquivo:
+        produtos = json.load(arquivo)
+except FileNotFoundError:
+    print("Arquivo não encontrado. Criando arquivo com dados iniciais...")
+    # Criação do arquivo se ele não existir
+    with open('produtos.json', 'w') as arquivo:
+        json.dump(produtos, arquivo, indent=4)
+else:
+    # Exibir os produtos se a leitura for bem-sucedida
+    for produto in produtos:
+        print(f"Nome: {produto['nome']}")
+        print(f"Preço: {produto['preco']}")
+        print(f"Quantidade: {produto['quantidade']}")
+        print("-" * 20)
+        
+
+
