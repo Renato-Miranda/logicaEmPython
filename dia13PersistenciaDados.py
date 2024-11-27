@@ -84,3 +84,27 @@ with open('contatos.csv', 'r') as arquivo_csv:
     leitor = csv.reader(arquivo_csv)
     for linha in leitor:
         print(linha)
+        
+### Exemplos Práticos ### 
+#1. Contador de Palavras em uma arquivo:
+
+nome_arquivo = input("Digite o nome deo arquivo: ")
+
+try:
+    with open(nome_arquivo, 'r') as arquivo:
+        conteudo = arquivo.read()
+except FileNotFoundError:
+    print("Erro: Arquivo não encontrado.")
+else:
+    palavras = conteudo.lower().split()
+    contagem = {}
+    
+    for palavra in palavras:
+        palavra = palavra.strip('.,!?";:-()')
+        if palavra in contagem:
+            contagem[palavra] += 1
+        else:
+            contagem[palavra] = 1
+            
+    for palavra, quantidade in contagem.items():
+        print(f"{palavra}: {quantidade}")
