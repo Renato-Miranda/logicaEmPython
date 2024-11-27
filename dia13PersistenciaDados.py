@@ -150,45 +150,78 @@
         
 #3. Leitor de Arquivos JSON:
 
-import json
+# import json
 
-# Dados iniciais
-produtos = [
-    {"nome": "Caneta", "preco": 1.50, "quantidade": 100},
-    {"nome": "Caderno", "preco": 10.00, "quantidade": 50}
-]
+# # Dados iniciais
+# produtos = [
+#     {"nome": "Caneta", "preco": 1.50, "quantidade": 100},
+#     {"nome": "Caderno", "preco": 10.00, "quantidade": 50}
+# ]
 
-try:
-    # Tentativa de leitura do arquivo
-    with open('produtos.json', 'r') as arquivo:
-        produtos = json.load(arquivo)
-except FileNotFoundError:
-    print("Arquivo não encontrado. Criando arquivo com dados iniciais...")
-    # Criação do arquivo se ele não existir
-    with open('produtos.json', 'w') as arquivo:
-        json.dump(produtos, arquivo, indent=4)
-else:
-    # Exibir os produtos se a leitura for bem-sucedida
-    for produto in produtos:
-        print(f"Nome: {produto['nome']}")
-        print(f"Preço: {produto['preco']}")
-        print(f"Quantidade: {produto['quantidade']}")
-        print("-" * 20)
+# try:
+#     # Tentativa de leitura do arquivo
+#     with open('produtos.json', 'r') as arquivo:
+#         produtos = json.load(arquivo)
+# except FileNotFoundError:
+#     print("Arquivo não encontrado. Criando arquivo com dados iniciais...")
+#     # Criação do arquivo se ele não existir
+#     with open('produtos.json', 'w') as arquivo:
+#         json.dump(produtos, arquivo, indent=4)
+# else:
+#     # Exibir os produtos se a leitura for bem-sucedida
+#     for produto in produtos:
+#         print(f"Nome: {produto['nome']}")
+#         print(f"Preço: {produto['preco']}")
+#         print(f"Quantidade: {produto['quantidade']}")
+#         print("-" * 20)
         
 #4. Copiador de Arquivos: fazer uma cópia de segurança das suas anotações
 
-origem = input("Digite o nome do arquivo de origem: ")
-destino = input("Digite o nome do arquivo de destino: ")
+# origem = input("Digite o nome do arquivo de origem: ")
+# destino = input("Digite o nome do arquivo de destino: ")
+
+# try:
+#     with open(origem, 'rb') as arquivo_origem:
+#         conteudo = arquivo_origem.read()
+#     with open(destino, 'wb') as arquivo_destino:
+#         arquivo_destino.write(conteudo)
+# except FileNotFoundError:
+#     print("Arquivo de origem não encontrado.")
+# else:
+#     print(f"Arquivo {destino} criado com sucesso.")
+
+#5. Calculadora de notas
+
+import csv
+
+# Lista para armazenar as médias dos alunos
+notas_alunos = []
 
 try:
-    with open(origem, 'rb') as arquivo_origem:
-        conteudo = arquivo_origem.read()
-    with open(destino, 'wb') as arquivo_destino:
-        arquivo_destino.write(conteudo)
+    # Abrindo o arquivo 'notas.csv' para leitura
+    with open('notas.csv', 'r') as arquivo_csv:
+        leitor = csv.DictReader(arquivo_csv)
+        for linha in leitor:
+            # Lendo os dados e convertendo para os tipos apropriados
+            nome = linha['Nome']
+            nota1 = float(linha['Nota1'])
+            nota2 = float(linha['Nota2'])
+            nota3 = float(linha['Nota3'])
+            
+            # Calculando a média
+            media = (nota1 + nota2 + nota3) / 3
+            
+            # Adicionando o resultado na lista
+            notas_alunos.append({'Nome': nome, 'Média': round(media, 2)})
 except FileNotFoundError:
-    print("Arquivo de origem não encontrado.")
+    print("Arquivo de notas não encontrado.")
 else:
-    print(f"Arquivo {destino} criado com sucesso.")
-
-
+    # Criando o arquivo 'medias.csv' com as médias calculadas
+    with open('medias.csv', 'w', newline='') as arquivo_csv:
+        campos = ['Nome', 'Média']
+        escritor = csv.DictWriter(arquivo_csv, fieldnames=campos)
+        escritor.writeheader()
+        for aluno in notas_alunos:
+            escritor.writerow(aluno)
+    print("Médias calculadas e salvas no arquivo 'medias.csv'.")
 
