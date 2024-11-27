@@ -192,36 +192,61 @@
 
 #5. Calculadora de notas
 
-import csv
+# import csv
 
-# Lista para armazenar as médias dos alunos
-notas_alunos = []
+# # Lista para armazenar as médias dos alunos
+# notas_alunos = []
+
+# try:
+#     # Abrindo o arquivo 'notas.csv' para leitura
+#     with open('notas.csv', 'r') as arquivo_csv:
+#         leitor = csv.DictReader(arquivo_csv)
+#         for linha in leitor:
+#             # Lendo os dados e convertendo para os tipos apropriados
+#             nome = linha['Nome']
+#             nota1 = float(linha['Nota1'])
+#             nota2 = float(linha['Nota2'])
+#             nota3 = float(linha['Nota3'])
+            
+#             # Calculando a média
+#             media = (nota1 + nota2 + nota3) / 3
+            
+#             # Adicionando o resultado na lista
+#             notas_alunos.append({'Nome': nome, 'Média': round(media, 2)})
+# except FileNotFoundError:
+#     print("Arquivo de notas não encontrado.")
+# else:
+#     # Criando o arquivo 'medias.csv' com as médias calculadas
+#     with open('medias.csv', 'w', newline='') as arquivo_csv:
+#         campos = ['Nome', 'Média']
+#         escritor = csv.DictWriter(arquivo_csv, fieldnames=campos)
+#         escritor.writeheader()
+#         for aluno in notas_alunos:
+#             escritor.writerow(aluno)
+#     print("Médias calculadas e salvas no arquivo 'medias.csv'.")
+
+#-------------------------- EXERCÍCIOS PRÁTICOS -------------------------------
+
+#1. Contador de PAlavras em um Arquivo:
+
+nome_arquivo = input("Digite o nome do arquivo: ")
 
 try:
-    # Abrindo o arquivo 'notas.csv' para leitura
-    with open('notas.csv', 'r') as arquivo_csv:
-        leitor = csv.DictReader(arquivo_csv)
-        for linha in leitor:
-            # Lendo os dados e convertendo para os tipos apropriados
-            nome = linha['Nome']
-            nota1 = float(linha['Nota1'])
-            nota2 = float(linha['Nota2'])
-            nota3 = float(linha['Nota3'])
-            
-            # Calculando a média
-            media = (nota1 + nota2 + nota3) / 3
-            
-            # Adicionando o resultado na lista
-            notas_alunos.append({'Nome': nome, 'Média': round(media, 2)})
+    with open(nome_arquivo, 'r') as arquivo:
+        conteudo = arquivo.read()
 except FileNotFoundError:
-    print("Arquivo de notas não encontrado.")
+    print("Arquivo não encontrado.")
 else:
-    # Criando o arquivo 'medias.csv' com as médias calculadas
-    with open('medias.csv', 'w', newline='') as arquivo_csv:
-        campos = ['Nome', 'Média']
-        escritor = csv.DictWriter(arquivo_csv, fieldnames=campos)
-        escritor.writeheader()
-        for aluno in notas_alunos:
-            escritor.writerow(aluno)
-    print("Médias calculadas e salvas no arquivo 'medias.csv'.")
-
+    palavras = conteudo.lower().split()
+    contagem = {}
+    
+    for palavra in palavras:
+        palavra = conteudo.strip('.,!?";:-()')
+        if palavra in contagem:
+            contagem[palavra] += 1
+        else:
+            contagem[palavra] = 1
+            
+    for palavras, quantidade in contagem.items():
+        print(f"{palavras}: {quantidade}")
+        
