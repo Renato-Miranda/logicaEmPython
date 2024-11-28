@@ -22,3 +22,28 @@ def gerar_id(tarefas):
         return ultimo_id + 1
     else:
         return 1
+# -----------Função para adicionar Tarefas -------------------
+def adicionar_tarefa(tarefas):
+    print("\nAdicionar Nova Tarefa")
+    titulo = input("Título: ")
+    descricao = input("Descrição: ")
+    data_input = input("Data de conclusão (dd/mm/aaaaaaaa: ")
+    try:
+        data_obj = datetime.strptime(data_input, '%d/%m/%Y')
+        data = data_obj.strftime('%d/%m/%Y')
+        if data_obj.date() < datetime.now().date():
+            print("Data de conclusão não pode ser no passado.")
+            return
+    except ValueError:
+        print("Data em formato inválido. Utilize dd/mm/aaaa")
+        return
+    tarefa = {
+        'id': gerar_id(tarefas),
+        'titulo': titulo,
+        'descricao': descricao,
+        'data': data,
+        'concluida': False
+    }
+    tarefas.append(tarefa)
+    salvar_tarefas(tarefas)
+    print("Tarefa adcionada com sucesso!")
