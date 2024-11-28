@@ -60,3 +60,19 @@ def listar_tarefas(tarefas):
         tarefas_concluidas = sorted(tarefas_concluidas, key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
         for tarefa in tarefas_concluidas:
             print(f"ID: {tarefa['id']}, Título: {tarefa['titulo']}, Datas: {tarefa['data']}")
+#----------------------Função para marcar Tarefa como Concluída------------------
+def concluir_tarefa(tarefas):
+    try:
+        id_tarefa = int(input("Digite o ID da tarefa s ser concluída: "))
+        for tarefa in tarefas:
+            if tarefa['id'] == id_tarefa:
+                if tarefa['concluida']:
+                    print('A tarefa já está concluída.')
+                else:
+                    tarefa['concluida'] = True
+                    salvar_tarefas(tarefas)
+                    print("Tarefa concluída com sucesso!")
+                return
+        print("Tarefa não encontrada.")
+    except ValueError:
+        print("ID inválido")
