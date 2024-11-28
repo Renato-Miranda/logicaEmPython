@@ -47,3 +47,16 @@ def adicionar_tarefa(tarefas):
     tarefas.append(tarefa)
     salvar_tarefas(tarefas)
     print("Tarefa adcionada com sucesso!")
+#----------------------Função de Listar Tarefas ----------------------------
+def listar_tarefas(tarefas):
+    print("\nTarefas Perdentes:")
+    tarefas_pendentes = [ t for t in tarefas if not t['concluida']]
+    tarefas_pendentes = sorted(tarefas_pendetes, key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
+    for tarefa in tarefas_pendentes:
+        print(f"ID: {tarefa['id']}, Título: {tarefa['titulo']}, Data: {tarefa['data']}")
+        
+        print("\nTarefas Concluídas:")
+        tarefas_concluidas = [t for t in tarefas if t['concluida']]
+        tarefas_concluidas = sorted(tarefas_concluidas, key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
+        for tarefa in tarefas_concluidas:
+            print(f"ID: {tarefa['id']}, Título: {tarefa['titulo']}, Datas: {tarefa['data']}")
