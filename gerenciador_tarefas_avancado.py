@@ -15,3 +15,10 @@ def  carregar_tarefas(tarefas):
 def salvar_tarefas(tarefas):
     with open('tarefas.json', 'w') as arquivo:
         json.dump(tarefas, arquivo, indent=4)
+#-----------Gerar ID Único para as Tarefas -------------------
+def gerar_id(tarefas):
+    if tarefas:
+        ultimo_id = tarefas[-1]['id']
+        return ultimo_id + 1
+    else:
+        return 1
