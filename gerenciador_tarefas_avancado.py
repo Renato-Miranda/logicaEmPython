@@ -105,3 +105,15 @@ def ordenar_tarefas(tarefas):
     tarefas.sort(key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
     salvar_tarefas(tarefas)
     print("Tarefas ordenadas por data de conclusão com sucesso!")
+#---------------------Menu Principal--------------------------------------------
+def menu():
+    print("\n=== Gerenciador de Tarefas Avançado ===")
+    print("1. adicionar Tarefa")
+    print("2. Listar Tarefas")
+    print("3. Concluir Tarefa")
+    print("4. Remover Tarefa")
+    print("5. Pesquisar Tarefas")
+    print("6. Ordenar Tarefas por Data")
+    print("7. Sair")
+    opcao = input("Escolha uma opção: ")
+    return opcao
