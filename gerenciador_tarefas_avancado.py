@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 # -----------Funções para Carregar e Salvar Tarefas --------
 # Função para carregar as tarefas do arquivo:
-def  carregar_tarefas(tarefas):
+def  carregar_tarefas():
     if os.path.exists('tarefas.json'):
         with open('tarefas.json', 'r') as arquivo:
             return json.load(arquivo)
@@ -27,7 +27,7 @@ def adicionar_tarefa(tarefas):
     print("\nAdicionar Nova Tarefa")
     titulo = input("Título: ")
     descricao = input("Descrição: ")
-    data_input = input("Data de conclusão (dd/mm/aaaaaaaa: ")
+    data_input = input("Data de conclusão (dd/mm/aaaa): ")
     try:
         data_obj = datetime.strptime(data_input, '%d/%m/%Y')
         data = data_obj.strftime('%d/%m/%Y')
@@ -51,7 +51,7 @@ def adicionar_tarefa(tarefas):
 def listar_tarefas(tarefas):
     print("\nTarefas Perdentes:")
     tarefas_pendentes = [ t for t in tarefas if not t['concluida']]
-    tarefas_pendentes = sorted(tarefas_pendetes, key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
+    tarefas_pendentes = sorted(tarefas_pendentes, key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
     for tarefa in tarefas_pendentes:
         print(f"ID: {tarefa['id']}, Título: {tarefa['titulo']}, Data: {tarefa['data']}")
         
@@ -86,7 +86,7 @@ def remover_tarefa(tarefas):
                 salvar_tarefas(tarefas)
                 print("Tarefa removida com sucesso!")
                 return
-        print("TArefa não encontrada")
+        print("Tarefa não encontrada")
     except ValueError:
         print("ID inválido")
 #--------------------Função para Pesquisar Tarefas--------------------------
