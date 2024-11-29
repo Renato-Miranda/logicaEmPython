@@ -76,3 +76,17 @@ def concluir_tarefa(tarefas):
         print("Tarefa não encontrada.")
     except ValueError:
         print("ID inválido")
+#------------------Função para Remover Tarefa ------------------------
+def remover_tarefa(tarefas):
+    try:
+        id_tarefa = input("Digite o ID da tarefa a ser removida: ")
+        for tarefa in tarefas:
+            if tarefa['id'] == id_tarefa:
+                tarefas.remove(tarefa)
+                salvar_tarefas(tarefas)
+                print("Tarefa removida com sucesso!")
+                return
+        print("TArefa não encontrada")
+    except ValueError:
+        print("ID inválido")
+
