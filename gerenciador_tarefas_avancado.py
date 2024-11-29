@@ -92,7 +92,7 @@ def remover_tarefa(tarefas):
 #--------------------Função para Pesquisar Tarefas--------------------------
 def pesquisar_tarefas(tarefas):
     termo = input("Digite o termo de pesquisa: ").lower()
-    resultados = [t for t in tarefas if termo in t['titulo'].lower() or termo in t['descricacoes'].lower()]
+    resultados = [t for t in tarefas if termo in t['titulo'].lower() or termo in t['descricao'].lower()]
     if resultados:
         print(f"\nTaferas que contêm '{termo}': ")
         for tarefa in resultados:
