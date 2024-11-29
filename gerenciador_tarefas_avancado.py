@@ -89,4 +89,15 @@ def remover_tarefa(tarefas):
         print("TArefa não encontrada")
     except ValueError:
         print("ID inválido")
-
+#--------------------Função para Pesquisar Tarefas--------------------------
+def pesquisar_tarefas(tarefas):
+    termo = input("Digite o termo de pesquisa: ").lower()
+    resultados = [t for t in tarefas if termo in t['titulo'].lower() or termo in t['descricacoes'].lower()]
+    if resultados:
+        print(f"\nTaferas que contêm '{termo}': ")
+        for tarefa in resultados:
+            status = 'Concluída' if tarefa['concluida'] else "Pendente"
+            print(f"ID: {tarefa['id']}, Título: {tarefa['titulo']}, Status: {status}, Data: {tarefa['data']}")
+    else:
+        print("Nenhuma tarefa encontrada com o termo específicado.")
+        
