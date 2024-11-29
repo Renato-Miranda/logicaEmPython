@@ -100,4 +100,8 @@ def pesquisar_tarefas(tarefas):
             print(f"ID: {tarefa['id']}, Título: {tarefa['titulo']}, Status: {status}, Data: {tarefa['data']}")
     else:
         print("Nenhuma tarefa encontrada com o termo específicado.")
-        
+#---------------------Função para ordenar tarefas por data---------------------
+def ordenar_tarefas(tarefas):
+    tarefas.sort(key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
+    salvar_tarefas(tarefas)
+    print("Tarefas ordenadas por data de conclusão com sucesso!")
