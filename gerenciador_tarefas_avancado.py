@@ -117,3 +117,28 @@ def menu():
     print("7. Sair")
     opcao = input("Escolha uma opção: ")
     return opcao
+#----------------------Loop Principal do Programa --------------------------------
+def main():
+    tarefas = carregar_tarefas()
+    while True:
+        opcao = menu()
+        if opcao == '1':
+            adicionar_tarefa(tarefas)
+        elif opcao == '2':
+            listar_tarefas(tarefas)
+        elif opcao == '3':
+            concluir_tarefa(tarefas)
+        elif opcao == '4':
+            remover_tarefa(tarefas)
+        elif opcao == '5':
+            pesquisar_tarefas(tarefas)
+        elif opcao == '6':
+            ordenar_tarefas(tarefas)
+        elif opcao == '7':
+            print("Encerrando o programa...")
+            break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção válida.")
+            
+if __name__ == '__main__':
+    main()
