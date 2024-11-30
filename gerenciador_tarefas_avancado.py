@@ -105,6 +105,33 @@ def ordenar_tarefas(tarefas):
     tarefas.sort(key=lambda x: datetime.strptime(x['data'], '%d/%m/%Y'))
     salvar_tarefas(tarefas)
     print("Tarefas ordenadas por data de conclusão com sucesso!")
+#---------------------Função de editar Tarefas-----------------------------
+def editar_tarefa(tarefas):
+    try:
+        id_tarefa = int(input("Digite o ID da tarefa a ser editada: "))
+        for tarefa in tarefas:
+            if tarefa['id'] == id_tarefa:
+                print(f"Editar Tarefa ID {id_tarefa}:")
+                novo_titulo = input(f"Novo título (atual: {tarefa['titulo']}): ") or tarefa['titulo']
+                nova_descricao = input(f"Nova Descrição (atual: {tarefa['descricao']}): ") or tarefa['descricao']
+                nova_data = input(f"Nova Data (atual: {tarefa['data']}, formato dd/mm/aaaa): ") or tarefa['data']
+                try:
+                    data_obj = datetime.strptime(nova_data, '%d/%m/%Y')
+                    if data_obj.date() < datetime.now().date():
+                        print("Data de conclusão não pode ser no passado.")
+                        return
+                    tarefa['data'] = data_obj.strftime('%d/%m/%Y')
+                except ValueError:
+                    print("DAta em formato inválido. Utilize dd/mm/aaaa.")
+                    return
+                tarefa['titulo'] = novo_titulo
+                tarefa['descricao'] = nova_descricao
+                salvar_tarefas(tarefas)
+                print("Tarefa editada com sucesso!")
+                return
+            print("Tarefa não encontrada.")
+    except ValueError:
+        print("ID Inválido")
 #---------------------Menu Principal--------------------------------------------
 def menu():
     print("\n=== Gerenciador de Tarefas Avançado ===")
