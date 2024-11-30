@@ -164,6 +164,8 @@ def main():
             ordenar_tarefas(tarefas)
         elif opcao == '7':
             print("Encerrando o programa...")
+        elif opcao == '8':
+            editar_tarefa(tarefas)
             break
         else:
             print("Opção inválida. Por favor, escolha uma opção válida.")
