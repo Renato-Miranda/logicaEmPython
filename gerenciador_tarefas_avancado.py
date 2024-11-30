@@ -142,6 +142,7 @@ def menu():
     print("5. Pesquisar Tarefas")
     print("6. Ordenar Tarefas por Data")
     print("7. Sair")
+    print("8. Editar Tarefa")
     opcao = input("Escolha uma opção: ")
     return opcao
 #----------------------Loop Principal do Programa --------------------------------
