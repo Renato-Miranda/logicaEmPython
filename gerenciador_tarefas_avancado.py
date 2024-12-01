@@ -141,8 +141,8 @@ def menu():
     print("4. Remover Tarefa")
     print("5. Pesquisar Tarefas")
     print("6. Ordenar Tarefas por Data")
-    print("7. Sair")
-    print("8. Editar Tarefa")
+    print("7. Editar Tarefa")
+    print("8. Sair")
     opcao = input("Escolha uma opção: ")
     return opcao
 #----------------------Loop Principal do Programa --------------------------------
@@ -162,9 +162,9 @@ def main():
             pesquisar_tarefas(tarefas)
         elif opcao == '6':
             ordenar_tarefas(tarefas)
-        elif opcao == '7':
-            print("Encerrando o programa...")
         elif opcao == '8':
+            print("Encerrando o programa...")
+        elif opcao == '7':
             editar_tarefa(tarefas)
             break
         else:
