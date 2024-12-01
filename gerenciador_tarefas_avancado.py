@@ -2,6 +2,7 @@
 # Importar módulos Necessários:
 import json
 import os
+import csv
 from datetime import datetime
 # -----------Funções para Carregar e Salvar Tarefas --------
 # Função para carregar as tarefas do arquivo:
@@ -132,6 +133,24 @@ def editar_tarefa(tarefas):
             print("Tarefa não encontrada.")
     except ValueError:
         print("ID Inválido")
+#--------------------Função Exporatar Tarefas para CSV-----------------------------------------
+def exportar_tarefas(tarefas):
+    try:
+        with open('tarefas_exportadas.csv', 'w', newline='') as arquivo_csv:
+            campos = ['ID', 'Título','Descrição', 'Data de conclusão', 'Concluída']
+            escritor = csv.DictWriter(arquivo_csv, fieldnames=campos)
+            escritor.writeheader()
+            for tarefa in tarefas:
+                escritor.writerow({
+                    'ID': tarefa['id'],
+                    'Título': tarefa['titulo'],
+                    'Descrição': tarefa['descricao'],
+                    'Data de conclusão': tarefa['data'],
+                    'Concluída': 'Sim' if tarefa['concluída'] else 'Não'
+                })
+        print("Tarefas exportadas com sucesso para 'tarefas_exportadas.csv'")
+    except Exception as e:
+        print(f"Occoreu um erro ao exportar as tarefas: {e}")
 #---------------------Menu Principal--------------------------------------------
 def menu():
     print("\n=== Gerenciador de Tarefas Avançado ===")
@@ -142,7 +161,8 @@ def menu():
     print("5. Pesquisar Tarefas")
     print("6. Ordenar Tarefas por Data")
     print("7. Editar Tarefa")
-    print("8. Sair")
+    print("8. Exportar Tarefas para CSV")
+    print("9. Sair")
     opcao = input("Escolha uma opção: ")
     return opcao
 #----------------------Loop Principal do Programa --------------------------------
@@ -162,10 +182,12 @@ def main():
             pesquisar_tarefas(tarefas)
         elif opcao == '6':
             ordenar_tarefas(tarefas)
-        elif opcao == '8':
-            print("Encerrando o programa...")
         elif opcao == '7':
             editar_tarefa(tarefas)
+        elif opcao == '8':
+            exportar_tarefas(tarefas)
+        elif opcao == '9':
+            print("Encerrando programa...")
             break
         else:
             print("Opção inválida. Por favor, escolha uma opção válida.")
