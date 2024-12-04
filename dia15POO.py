@@ -71,3 +71,20 @@ livro2 = Livro("Dom Casmurro", "Machado de Assis", 1899)
 
 livro1.exibir_informacoes()
 livro2.exibir_informacoes()
+
+#------------------------------- EXERCÍCIOS PRÁTICOS --------------------------------
+#1. Clsse Retangulo:
+class Retangulo:
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+        
+    def area(self):
+        return self.largura * self.altura
+    
+    def perimetro(self):
+        return 2 * (self.largura + self.altura)
+    
+retangulo = Retangulo(5, 3)
+print(f"Áreas: {retangulo.area()}")
+print(f"Perímetro: {retangulo.perimetro()}")
