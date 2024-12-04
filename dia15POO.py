@@ -128,3 +128,22 @@ luke.latir()
 print(f"idade: {luke.idade}")
 luke.aniversario()
 print(f"Nova idade: {luke.idade}")
+
+#4. Classe Caculadora:
+class Calculadora:
+    def somar(self, a, b):
+        return a + b
+    def subtrair(self, a, b):
+        return a - b
+    def multiplicar(self, a, b):
+        return a * b
+    def dividir(self,a,b):
+        if b != 0:
+            return a / b
+        else:
+            print("Erro: divisão por zero")
+            return None
+        
+calc = Calculadora()
+print(calc.somar(5, 3))
+        
