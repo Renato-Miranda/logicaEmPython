@@ -55,3 +55,19 @@ joao.apresentar()
 maria.apresentar()
 
 joao.aniversario()
+
+#2. Classe Livro:
+class Livro:
+    def __init__(self, titulo, autor, ano):
+        self.titulo = titulo
+        self.autor = autor
+        self.ano = ano
+        
+    def exibir_informacoes(self):
+        print(f"Título: {self.titulo}, Autor: {self.autor}, Ano: {self.ano}")
+
+livro1 = Livro("1984", "George Orwell", 1949)
+livro2 = Livro("Dom Casmurro", "Machado de Assis", 1899)
+
+livro1.exibir_informacoes()
+livro2.exibir_informacoes()
