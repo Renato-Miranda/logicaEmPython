@@ -110,3 +110,21 @@ aluno.adicionar_nota(7.0)
 aluno.adicionar_nota(9.0)
 media = aluno.calcular_media()
 print(f"Média de {aluno.nome}: {media:.2f} ")
+
+#3. Classe Cachorro:
+class Cachorro:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+        
+    def latir(self):
+        print(f"{self.nome} está latindo: Au Au!")
+    
+    def aniversario(self):
+        self.idade += 1
+        
+luke = Cachorro("Luke", 2)
+luke.latir()
+print(f"idade: {luke.idade}")
+luke.aniversario()
+print(f"Nova idade: {luke.idade}")
