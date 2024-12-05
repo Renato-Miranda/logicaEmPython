@@ -184,3 +184,48 @@ fabrica = FabricaForma()
 
 forma1 = fabrica.criar_forma("círculo")
 forma1.desenhar()
+# 3. Implementar o PAdrão Observador na Classe Notificador:
+# Definir a Classe Abstrata observador
+
+
+class Observador(ABC):
+    @abstractmethod
+    def atualizar(self, mensagem):
+        pass
+# Definir a Classe Notificador:
+
+
+class Notificador:
+    def __init__(self):
+        self.observadores = []
+
+    def adicionar_observador(self, observador):
+        self.observadores.append(observador)
+
+    def remover_observador(self, observador):
+        self.observadores.remove(observador)
+
+    def notificar(self, mensagem):
+        for observador in self.observadores:
+            observador.atualizar(mensagem)
+# Definir as Classe Concretas Usuario:
+
+
+class Usuario(Observador):
+    def __init__(self, nome):
+        self.nome = nome
+
+    def atualizar(self, mensagem):
+        print(f"{self.nome} recebeu a mensagem: {mensagem}")
+
+
+# testar o Observer:
+notificador = Notificador()
+
+usuario1 = Usuario("Carlos")
+usuario2 = Usuario("Fernanda")
+
+notificador.adicionar_observador(usuario1)
+notificador.adicionar_observador(usuario2)
+
+notificador.notificar("Nova atualização disponível.")
