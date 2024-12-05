@@ -139,3 +139,48 @@ class Database:
 # Testando Singleton:
 db1 = Database()
 db1.conectar()
+
+# 2. Implementar o Padrão Factory Method na criação de formas Geométricas
+# Definir a Classe Abstrata Forma
+
+
+class Forma(ABC):
+    @abstractmethod
+    def desenhar(self):
+        pass
+# Definir as Classe Concretas:
+
+
+class Circulo(Forma):
+    def desenhar(self):
+        print("Desenhando um círculo.")
+
+
+class Quadrado(Forma):
+    def desenhar(self):
+        print("Desenhando um quadrado.")
+
+
+class Triangulo(Forma):
+    def desenhar(self):
+        print("Desenhando um triangulo.")
+# Definir a Classe FabricaForma:
+
+
+class FabricaForma:
+    def criar_forma(self, tipo):
+        if tipo == 'círculo':
+            return Circulo()
+        elif tipo == 'quadrado':
+            return Quadrado()
+        elif tipo == 'triângulo':
+            return Triangulo()
+        else:
+            return ValueError("Tipo de forma desconhecido.")
+
+
+# testando o Factory Method:
+fabrica = FabricaForma()
+
+forma1 = fabrica.criar_forma("círculo")
+forma1.desenhar()
