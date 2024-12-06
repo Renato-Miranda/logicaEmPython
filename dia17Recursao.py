@@ -71,15 +71,31 @@ print(pesquisar_binaria(lista, 4))
 # 4. Imprimir um Triãngulo de Estrelas Recursivamente:
 
 
-def imprimir_triangulo(n):
-    if n > 0:
-        imprimir_triangulo(n-1)
-        print('*' * n)
+# def imprimir_triangulo(n):
+#     if n > 0:
+#         imprimir_triangulo(n-1)
+#         print('*' * n)
+
+
+# # Entrada do usuário:
+# linhas = int(input("Digite o número de linhas para o triângulo: "))
+# if linhas <= 0:
+#     print("Número de linhas dever ser positivo.")
+# else:
+#     imprimir_triangulo(linhas)
+
+# 5. Soma dos Elementos da uma Lista Recursivamente:
+
+
+def soma_lista(lista):
+    if not lista:
+        return 0
+    else:
+        return lista[0] + soma_lista(lista[1:])
 
 
 # Entrada do usuário:
-linhas = int(input("Digite o número de linhas para o triângulo: "))
-if linhas <= 0:
-    print("Número de linhas dever ser positivo.")
-else:
-    imprimir_triangulo(linhas)
+entrada = input("Digite uma lista de números separados pos espaço: ")
+lista = [int(num) for num in entrada.split()]
+resultado = soma_lista(lista)
+print(f"A soma dos elementos da lista é {resultado}.")
