@@ -67,3 +67,19 @@ def pesquisar_binaria(lista, alvo, inicio=0, fim=None):
 lista = [1, 3, 5, 7, 9, 11]
 print(pesquisar_binaria(lista, 7))
 print(pesquisar_binaria(lista, 4))
+
+# 4. Imprimir um Triãngulo de Estrelas Recursivamente:
+
+
+def imprimir_triangulo(n):
+    if n > 0:
+        imprimir_triangulo(n-1)
+        print('*' * n)
+
+
+# Entrada do usuário:
+linhas = int(input("Digite o número de linhas para o triângulo: "))
+if linhas <= 0:
+    print("Número de linhas dever ser positivo.")
+else:
+    imprimir_triangulo(linhas)
