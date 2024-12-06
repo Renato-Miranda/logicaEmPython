@@ -42,3 +42,28 @@ def fibonnacci(n):
 
 
 print(fibonnacci(7))
+
+# 3. Pesquisa Binária:
+
+
+def pesquisar_binaria(lista, alvo, inicio=0, fim=None):
+    if fim is None:
+        fim = len(lista) - 1
+
+    if inicio > fim:
+        return -1  # Elemento não encontrado
+
+    meio = (inicio + fim) // 2
+
+    if lista[meio] == alvo:
+        return meio
+    elif lista[meio] < alvo:
+        return pesquisar_binaria(lista, alvo, meio + 1, fim)
+    else:
+        return pesquisar_binaria(lista, alvo, inicio, meio - 1)
+
+
+# exemplo de uso:
+lista = [1, 3, 5, 7, 9, 11]
+print(pesquisar_binaria(lista, 7))
+print(pesquisar_binaria(lista, 4))
