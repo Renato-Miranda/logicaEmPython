@@ -28,3 +28,17 @@ def fatorial(n):
 
 # Exemplo de uso:
 print(fatorial(5))
+
+# 2 Sequência Fibonacci:
+
+
+def fibonnacci(n):
+    if n <= 0:
+        return 0  # Caso base
+    elif n == 1:
+        return 1  # Caso base
+    else:
+        return fibonnacci(n-1) + fibonnacci(n - 2)  # Caso Recursivo
+
+
+print(fibonnacci(7))
