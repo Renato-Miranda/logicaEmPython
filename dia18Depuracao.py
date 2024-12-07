@@ -11,6 +11,7 @@
 #  Adicionar declarações print() em diferentes partes do código ajuda a verificar o fluxo de
 #  execução e os valores das variáveis em tempo real.
 #  Exemplo:
+import unittest
 import logging
 import pdb
 
@@ -56,3 +57,9 @@ def multiplicar(a, b):
 
 resultado = multiplicar(5, 6)
 print(resultado)
+
+'''
+5. Isolamento do Problema
+Tente isolar a parte do código que está causando o erro. Remova ou comente trechos de
+código até identificar a origem do problema.
+'''
