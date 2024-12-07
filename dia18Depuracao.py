@@ -11,6 +11,7 @@
 #  Adicionar declarações print() em diferentes partes do código ajuda a verificar o fluxo de
 #  execução e os valores das variáveis em tempo real.
 #  Exemplo:
+import logging
 import pdb
 
 
@@ -30,10 +31,28 @@ dividir(10, 2)
 #  Exemplo de Uso do pdb:
 
 
-def somar(a, b):
-    pdb.set_trace()  # Ponto de interrupção
-    return a + b
+# def somar(a, b):
+#     pdb.set_trace()  # Ponto de interrupção
+#     return a + b
 
 
-resultado = somar(3, 4)
+# resultado = somar(3, 4)
+# print(resultado)
+
+'''
+4. Revisão de Logs
+Manter registros (logs) do que o programa está fazendo pode ajudar a identificar padrões ou
+erros que ocorrem durante a execução.
+Exemplo:
+'''
+
+logging.basicConfig(level=logging.DEBUG)
+
+
+def multiplicar(a, b):
+    logging.debug(f"Multiplicando {a} por {b}")
+    return a * b
+
+
+resultado = multiplicar(5, 6)
 print(resultado)
