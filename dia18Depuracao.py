@@ -11,6 +11,9 @@
 #  Adicionar declarações print() em diferentes partes do código ajuda a verificar o fluxo de
 #  execução e os valores das variáveis em tempo real.
 #  Exemplo:
+import pdb
+
+
 def dividir(a, b):
     print(f"Dividindo {a} por {b}")
     resultado = a / b
@@ -19,4 +22,18 @@ def dividir(a, b):
 
 
 dividir(10, 2)
-dividir(5, 0)  # vai causar um erro.
+# dividir(5, 0)  # vai causar um erro.
+
+# 3. Utilização do Debuggers
+#  Ferramentas como o pdb (Python Debugger) permitem pausar a execução do código,
+#  inspecionar variáveis e executar passo a passo para identificar onde ocorre o erro.
+#  Exemplo de Uso do pdb:
+
+
+def somar(a, b):
+    pdb.set_trace()  # Ponto de interrupção
+    return a + b
+
+
+resultado = somar(3, 4)
+print(resultado)
