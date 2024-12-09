@@ -67,5 +67,21 @@ def cadastrar_livro(livros):
 def listar_livros(livros):
     print("\n=== Lista de Livros ===")
     for livro_dict in livros:
-        Livro = Livro(**livro_dict)
+        livro = Livro(**livro_dict)
         livro.exibir_informacoes()
+'''---------------------Funções Para Gerenciamento de usuários--------------'''
+def cadastrar_usuario(usuarios):
+    id = len(usuarios) + 1
+    nome = input("Nome do Usuário: ")
+    email = input("Email do Usuário: ")
+    telefone = input("Telefone: ")
+    usuario = Usuario(id, nome, telefone)
+    usuarios.append(usuario.__dict__)
+    salvar_dados('usuarios.json', usuarios)
+    logging.info(f"Usuário '{nome}' cadastrado com sucesso.")
+    
+def listar_usuarios(usuarios):
+    print("\n=== Lista de Usuários ===")
+    for usuario_dict in usuarios:
+        usuario = Usuario(**usuario_dict)
+        usuario.exibir_informacoes()
