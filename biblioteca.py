@@ -1,14 +1,12 @@
-# Importar Módulos necessários:
+'''#----------------------- Importar Módulos necessários:-------------------------'''
 import json
 import os
 from datetime import datetime
 import logging
-# Configurar Logging:
+'''# -----------------------Configurar Logging:------------------'''
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 # Classe Livro:
-
-
 class Livro:
     def __init__(self, id, titulo, autor, ano, isbn):
         self.id = id
@@ -43,3 +41,14 @@ class Emprestimo:
     def exibir_informacoes(self):
         status = "Devolvido" if self.data_devolucao else "Pendente"
         print(f"ID: {self.id}, Usuário ID: {self.usuario_id}, Livro ID: {self.livro_id}, Data Emprestimo: {self.data_emprestimo}, Data Devolução: {self.data_devolucao}, Status: {status}")
+'''----------------Função Para Carregar e Salvar Dados----------------'''
+def carregar_dados(nome_arquivo):
+    if os.path.exists(nome_arquivo):
+        with open(nome_arquivo, 'r') as arquivo:
+            return json.load(arquivo)
+    else:
+        return []
+
+def salvar_dados(nome_arquivo, dados):
+    with open(nome_arquivo, 'w') as arquivo:
+        json.dump(dados, arquivo, indent=4)
