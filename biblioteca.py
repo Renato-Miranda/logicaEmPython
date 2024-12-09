@@ -52,3 +52,20 @@ def carregar_dados(nome_arquivo):
 def salvar_dados(nome_arquivo, dados):
     with open(nome_arquivo, 'w') as arquivo:
         json.dump(dados, arquivo, indent=4)
+'''---------------------Funções Para Gerenciamento de Livros -----------'''
+def cadastrar_livro(livros):
+    id = len(livros) + 1
+    titulo = input("Título do Livro: ")
+    autor = input("Autor: ")
+    ano = input("Ano de Publicação: ")
+    isbn = input("ISBN: ")
+    livro = Livro(id, titulo, autor, ano, isbn)
+    livros.append(livro.__dict__)
+    salvar_dados('livros.json', livros)
+    logging.info(f"Livro '{titulo}' cadastrado com sucesso.")
+    
+def listar_livros(livros):
+    print("\n=== Lista de Livros ===")
+    for livro_dict in livros:
+        Livro = Livro(**livro_dict)
+        livro.exibir_informacoes()
