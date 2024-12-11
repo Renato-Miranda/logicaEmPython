@@ -177,3 +177,19 @@ def gerar_relatorio_emprestimos(emprestimos, usuarios, livros):
         if usuario and livro:
             status = "Devolvido" if emprestimo.data_devolucao else "Pendente"
             print(f"Empréstimo ID: {emprestimo.id}, Usuário: {usuario['nome']}, Livro: {livro['titulo']}, Data Empréstimo: {emprestimo.data_emprestimo}, Data Devolução: {emprestimo.data_devolucao}, Status: {status}")
+''' ------------------Menu Principal----------------------------------------'''
+def menu():
+    print("\n=== Sistema de Gerenciamento de Biblioteca ===")
+    print("1. Cadastrar Livro")
+    print("2. Listar Livros")
+    print("3. Cadastrar Usuário")
+    print("4. Listar Usuários")
+    print("5. Emprestar Livro")
+    print("6. Devolver Livro")
+    print("7. Listar Empréstimos")
+    print("8. Pesquisar Livros")
+    print("9. Pesquisar Usuários")
+    print("10. Gerar Relatório de Empréstimos")
+    print("11. Sair")
+    opcao = input("Escolha uma opção: ")
+    return opcao
