@@ -193,3 +193,40 @@ def menu():
     print("11. Sair")
     opcao = input("Escolha uma opção: ")
     return opcao
+'''------------------Loop Principal do Programa------------------------------'''
+def main():
+# Carregar dados
+    livros = carregar_dados('livros.json')
+    usuarios = carregar_dados('usuarios.json')
+    emprestimos = carregar_dados('emprestimos.json')
+    
+    while True:
+            opcao = menu()
+            if opcao == '1':
+                cadastrar_livro(livros)
+            elif opcao == '2':
+                listar_livros(livros)
+            elif opcao == '3':
+                cadastrar_usuario(usuarios)
+            elif opcao == '4':
+                listar_usuarios(usuarios)
+            elif opcao == '5':
+                emprestar_livro(emprestimos, livros, usuarios)
+            elif opcao == '6':
+                devolver_livro(emprestimos, livros)
+            elif opcao == '7':
+                listar_emprestimos(emprestimos)
+            elif opcao == '8':
+                pesquisar_livros(livros)
+            elif opcao == '9':
+                pesquisar_usuarios(usuarios)
+            elif opcao == '10':
+                gerar_relatorio_emprestimos(emprestimos, usuarios, livros)
+            elif opcao == '11':
+                print("Encerrando o sistema de biblioteca. Até mais!")
+                break
+            else:
+                print("Opção inválida. Por favor, escolha uma opçãoválida.")
+                
+if __name__ == '__main__':
+    main()
