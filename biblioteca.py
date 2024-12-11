@@ -167,3 +167,13 @@ def pesquisar_usuarios(usuarios):
             usuario.exibir_informacoes()
     else:
         print("Nenhum usuário encontrado com o termo especificado.")
+'''----------------- Função de Relatórios ------------------------'''
+def gerar_relatorio_emprestimos(emprestimos, usuarios, livros):
+    print(f"\n=== Relatório de Emprestimos ===")
+    for emprestimo_dict in emprestimos:
+        emprestimo = Emprestimo(**emprestimo_dict)
+        usuario = next((u for u in usuarios if u['id'] == emprestimo.usuario_id), None)
+        livro = next((l for l in usuarios if l['id'] == emprestimo.livro_id), None)
+        if usuario and livro:
+            status = "Devolvido" if emprestimo.data_devolucao else "Pendente"
+            print(f"Empréstimo ID: {emprestimo.id}, Usuário: {usuario['nome']}, Livro: {livro['titulo']}, Data Empréstimo: {emprestimo.data_emprestimo}, Data Devolução: {emprestimo.data_devolucao}, Status: {status}")
