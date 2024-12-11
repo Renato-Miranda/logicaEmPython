@@ -85,3 +85,63 @@ def listar_usuarios(usuarios):
     for usuario_dict in usuarios:
         usuario = Usuario(**usuario_dict)
         usuario.exibir_informacoes()
+'''--------------------Funções ára Gerenciamento de Empre´stimos----------------'''
+def emprestar_livro(emprestimos, livros, usuarios):
+    id = len(emprestimos) + 1
+    usuario_id = int(input("ID do Usuário: "))
+    livro_id = int(input("ID do Livro: "))
+
+    # Verificar se o usuário existe
+    usuario_existente = any(u['id'] == usuario_id for u in usuarios)
+    if not usuario_existente:
+        print("Usuário não encontrado.")
+        return
+    
+    # Verificar se o livro está disponível
+    livro = next((l for l in livros if l['id'] == livro_id), None)
+    if not livro:
+        print("Livro não encontrado.")
+        return
+    if not livro['disponivel']:
+        print("Livro não está diponível para empréstimo.")
+        return
+    
+    data_emprestimo = datetime.now().strftime('%d/%m/%Y')
+    emprestimo = Emprestimo(id, usuario_id, livro_id, data_emprestimo)
+    emprestimos.append(emprestimo.__dict__)
+    
+    # Atualizar diponibilidade do livro
+    livro['disponivel'] = False
+    
+    salvar_dados('emprestimos.json', emprestimos)
+    salvar_dados('livros.json', livros)
+    logging.info(f"Livro ID {livro_id} emprestado  para Usuário ID {usuario_id}")
+    
+def devolver_livro(emprestimos, livros):
+    id_emprestimo = int(input("Id do Empréstimo: "))
+    emprestimo = next((e for e in emprestimos if e['id'] == id_emprestimo), None)
+    if not emprestimo:
+        print("Emprestimo não encontrado.")
+        return
+    if not emprestimo['data_devolucao']:
+        print("Livro já foi devolvido.")
+        return
+    
+    data_devolucao = datetime.now().strftime('%d.%m.%Y')
+    emprestimo['data_devolucao'] = data_devolucao
+    
+    # Atualizar disponibilidade do livro
+    livro_id = emprestimo[livro_id]
+    livro = next((l for l in livros if l['id'] == livro_id), None)
+    if livro:
+        livro['disponivel'] = True
+        
+    salvar_dados('emprestimos.json', emprestimos)
+    salvar_dados('livros.json', livros)
+    logging.info(f"Livro ID {livro_id} devolvido pelo Usuário ID {emprestimo['usuário_id']}")
+    
+def listar_emprestimos(emprestimos):
+    print("\n=== Lista de Emprestimos ===")
+    for emprestimo_dict in emprestimos:
+        emprestimo = Emprestimo(**emprestimo_dict)
+        emprestimo.exibir_informacoes()
