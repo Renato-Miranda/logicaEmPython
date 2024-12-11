@@ -145,3 +145,25 @@ def listar_emprestimos(emprestimos):
     for emprestimo_dict in emprestimos:
         emprestimo = Emprestimo(**emprestimo_dict)
         emprestimo.exibir_informacoes()
+'''-----------------------Funções de Pequisa--------------------------------'''
+def pesquisar_livros(livros):
+    termo = input("Digite o termo de pesquisa para livros: ").lower()
+    resultados = [l  for l in livros if termo in l['titulo'].lower() or termo in l['autor'].lower()]
+    if resultados:
+        print(f"\n=== Resultados da Pesquisa por Livros: '{termo} ==='")
+        for livro_dict in resultados:
+            livro = Livro(**livro_dict)
+            livro.exibir_informacoes()
+    else:
+        print("Nenhum livro encontrado com o termo especificado.")
+        
+def pesquisar_usuarios(usuarios):
+    termo = input("Digite o termo de pesquisa para usuários: ").lower()
+    resultados = [u for u in usuarios if termo in u['nome'].lower() or termo in u['email'].lower()]
+    if resultados:
+        print(f"\n=== Resultados da Pesquisa por Usuários : '{termo}' ===")
+        for usuario_dict in resultados:
+            usuario = Usuario(**usuario_dict)
+            usuario.exibir_informacoes()
+    else:
+        print("Nenhum usuário encontrado com o termo especificado.")
